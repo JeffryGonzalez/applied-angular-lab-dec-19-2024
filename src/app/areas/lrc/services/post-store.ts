@@ -92,7 +92,7 @@ export const PostsStore = signalStore(
   withComputed((store) => {
     return {
       numberOfPosts: computed(() => ({
-        total: store._serverIds().length,
+        total: store._serverIds().length + store._outboxIds().length,
         pending: store._outboxIds().length,
       })),
       posts: computed(() => {

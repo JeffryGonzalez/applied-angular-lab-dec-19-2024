@@ -89,7 +89,7 @@ export class EntryComponent {
     this.form.valueChanges
       .pipe(
         takeUntilDestroyed(),
-        debounceTime(250),
+        debounceTime(250), // only do this every 250 ms
         tap((v) => this.store.setSavedEntry(v)),
       )
       .subscribe();

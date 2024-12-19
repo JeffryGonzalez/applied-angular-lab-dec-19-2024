@@ -17,8 +17,8 @@ export class PostApi {
   addPost(post: PostCreateModel, tempId: string) {
     return this.#http.post<PostApiResponseItem>('/api/posts', post).pipe(
       map((post) => ({
-        post,
-        tempId,
+        post, /// this is server data
+        tempId, // the id of the temporary one in the outbox
       })),
     );
   }
