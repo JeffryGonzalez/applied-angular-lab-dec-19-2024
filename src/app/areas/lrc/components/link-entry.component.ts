@@ -63,7 +63,7 @@ type FormModel = FormGroupFromModel<PostCreateModel>;
     <a routerLink="../" class="btn btn-secondary">Back to List</a>`,
   styles: ``,
 })
-export class EntryComponent {
+export class LinkEntryComponent {
   store = inject(PostsStore);
   form = new FormGroup<FormModel>({
     name: new FormControl('', {

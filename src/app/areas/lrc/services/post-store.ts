@@ -74,16 +74,15 @@ export const PostsStore = signalStore(
       _load: rxMethod<void>(
         pipe(
           switchMap(() =>
-            api
-              .getPosts()
-              .pipe(
-                tap((posts) =>
-                  patchState(
-                    store,
-                    addEntities(posts, { collection: '_server' }),
-                  ),
+            api.getPosts().pipe(
+              // in the future when this comes back
+              tap((posts) =>
+                patchState(
+                  store,
+                  addEntities(posts, { collection: '_server' }),
                 ),
               ),
+            ),
           ),
         ),
       ),

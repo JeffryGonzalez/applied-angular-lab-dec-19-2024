@@ -11,7 +11,9 @@ export class PostApi {
   //constructor(private http: HttpClient) {}
   #http = inject(HttpClient);
   getPosts() {
-    return this.#http.get<PostApiResponse>('/api/posts');
+    const posts = this.#http.get<PostApiResponse>('./api/posts');
+    return posts;
+    //return this.#http.get<PostApiResponse>('/api/posts');
   }
 
   addPost(post: PostCreateModel, tempId: string) {

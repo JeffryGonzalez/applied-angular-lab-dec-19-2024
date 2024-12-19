@@ -8,6 +8,12 @@ import { canMatchFeature } from '@shared';
 // Modes within our application.
 export const routes: Routes = [
   {
+    path: 'books',
+    canMatch: [canMatchFeature('books')],
+    loadChildren: () =>
+      import('./areas/books/books.routes').then((b) => b.BOOKS_ROUTES),
+  },
+  {
     path: 'lrc',
     canMatch: [canMatchFeature('lrc')],
     loadChildren: () =>
